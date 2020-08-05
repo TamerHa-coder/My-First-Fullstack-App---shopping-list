@@ -41,6 +41,11 @@ app.put('/products/:id', (req, res) => {
 );}
 );
 
+app.post("/products", (req, res) => {
+    items.push(req.body);
+    res.send(req.body);
+  });
+
 app.delete('/products/:id', (req, res) => {
     items.forEach((item, i) =>{
             if(item.id === req.params.id){
