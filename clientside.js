@@ -20,18 +20,17 @@ const deleteItem = async (id) => {
 };
 
 const listDiv = document.getElementById("list");
-
 const idText = document.getElementById("id");
 const itemText = document.getElementById("item");
-
 const addButton = document.getElementById("add");
+
 addButton.addEventListener("click", () => addItem(idText.value, itemText.value));
 
 const loadList = (list) => {
     let htmlText = ``;
     
     list.forEach(item => {
-        htmlText += `<div>${item.id} ${item.name} <button id="${item.id}">Delete</button></div>`;
+        htmlText += `<li><span>${item.id} ${item.name}</span> <button id="${item.id}">Delete</button></li>`;
     });
 
     listDiv.innerHTML = htmlText;
@@ -43,7 +42,7 @@ const loadList = (list) => {
 };
 
 const addToDiv = (id, item) => {
-    const htmlText = `<div>${id} ${item} <button id="${id}">Delete</button></div>`;
+    const htmlText = `<li><span>${id} ${item}</span> <button id="${id}">Delete</button></li>`;
 
     listDiv.innerHTML += htmlText;
 };
