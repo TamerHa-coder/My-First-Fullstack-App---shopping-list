@@ -9,8 +9,12 @@ const addItem = async (id, item) => {
         const { data } = await axios.post(`http://localhost:3001/products`, {id: id, name: item})
         .then(addToDiv(id, item));
         loadData();
+        idText.focus();
+        idText.value = "";
+        itemText.value = "";
         console.log(data)
     }
+    idText.focus();
 };
 
 const deleteItem = async (id) => {
