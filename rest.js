@@ -33,10 +33,12 @@ app.get('/products/:id', (req, res) => {
 
 app.put('/products/:id', (req, res) => {
     items.forEach((item, i) => {
-            if(item.id === req.params.id){
-                items[i] = req.body;
-                res.send(req.body);
-            }
+        if(item.id === req.params.id){
+            items[i] = req.body;
+            res.send(req.body);
+        }else {
+            res.status(404).end()
+        }
     }
 );}
 );
@@ -48,16 +50,12 @@ app.post("/products", (req, res) => {
 
 app.delete('/products/:id', (req, res) => {
     items.forEach((item, i) =>{
-            if(item.id === req.params.id){
-                items.splice(i,1);
-                res.send();
-    }
-   
+        if(item.id === req.params.id){
+            items.splice(i,1);
+            res.send();
         }
+    }
 )}
 );
-
-
-
 
 app.listen(3001);
